@@ -8,5 +8,5 @@ steps:
     - task: Maven@4
       inputs:
         mavenPOMFile: 'pom.xml' 
-        goals: validate
+        goals: build
                
