@@ -1,0 +1,12 @@
+---
+pool: Default
+
+trigger: 
+  - master
+
+steps:
+    - task: Maven@4
+      inputs:
+        mavenPOMFile: 'pom.xml' 
+        goals: validate
+               
