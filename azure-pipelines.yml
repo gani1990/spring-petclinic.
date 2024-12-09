@@ -1,12 +1,11 @@
 ---
 pool: Default
 
-trigger: 
-  - master
-
+trigger: none
+pr:
+  - main
 steps:
     - task: Maven@4
       inputs:
         mavenPOMFile: 'pom.xml' 
         goals: package
-               
