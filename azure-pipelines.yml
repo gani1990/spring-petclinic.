@@ -5,6 +5,11 @@ trigger: none
 pr:
   - main
 steps:
+    - task: SonarCloudPrepare@3
+      inputs:
+        SonarCloud: SONAR_CLOUD
+        scannerMode: other
+        organization: gani1990
     - task: Maven@4
       inputs:
         mavenPOMFile: 'pom.xml' 
@@ -20,6 +25,7 @@ steps:
       inputs:
         pathToPublish: $(Build.ArtifactStagingDirectory)
         artifactName: $(Build.Repository.name)
-        
-
-
+    - task: SonarCloudPublish@3
+      inputs:
+        pollingTimeoutSec: '300'
+    
